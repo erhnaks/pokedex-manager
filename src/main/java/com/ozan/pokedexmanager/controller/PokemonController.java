@@ -19,7 +19,7 @@ public class PokemonController {
 
     @GetMapping("/pokemons")
     public String listPokemons(Model model) {
-
+        service.getAllPokemon();
         model.addAttribute("pokemons", service.getAllPokemon());
         return "pokemons";
     }
