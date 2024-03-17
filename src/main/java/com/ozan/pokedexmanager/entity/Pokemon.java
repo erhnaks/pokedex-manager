@@ -1,5 +1,7 @@
 package com.ozan.pokedexmanager.entity;
 
+import com.ozan.pokedexmanager.service.enums.Evolution;
+import com.ozan.pokedexmanager.service.enums.Type;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,40 +10,39 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name", nullable = false)
+
     private String name;
-    @Column(name = "category", nullable = false)
-    private String category;
-    @Column(name = "type_", nullable = false)
-    private String type;
-    @Column(name = "evolution_from", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Evolution evolution;
+    @Enumerated(EnumType.STRING)
+    private Type type;
+    @Column(name = "evolution_from")
     private String evolutionFrom;
-    @Column(name = "specialization_one", nullable = false)
+    @Column(name = "specialization_one")
     private String specializationOne;
     @Column(name = "specialization_two")
     private String specializationTwo;
-    @Column(name = "hp_power", nullable = false)
-    private int hpPower;
-    @Column(name = "weakness")
+    private int health;
     private int weakness;
-    @Column(name = "resistance")
     private int resistance;
-    @Column(name = "retreat")
     private int retreat;
+
+    private String description;
 
     public Pokemon() {};
 
-    public Pokemon(String name, String category, String type, String evolutionFrom, String specializationOne, String specializationTwo, int hpPower, int weakness, int resistance, int retreat) {
+    public Pokemon(String name, Evolution evolution, Type type, String evolutionFrom, String specializationOne, String specializationTwo, int health, int weakness, int resistance, int retreat, String description) {
         this.name = name;
-        this.category = category;
+        this.evolution = evolution;
         this.type = type;
         this.evolutionFrom = evolutionFrom;
         this.specializationOne = specializationOne;
         this.specializationTwo = specializationTwo;
-        this.hpPower = hpPower;
+        this.health = health;
         this.weakness = weakness;
         this.resistance = resistance;
         this.retreat = retreat;
+        this.description = description;
     }
 
     public Long getId() {
@@ -60,19 +61,19 @@ public class Pokemon {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public Evolution getEvolution() {
+        return evolution;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setEvolution(Evolution evolution) {
+        this.evolution = evolution;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
@@ -100,12 +101,12 @@ public class Pokemon {
         this.specializationTwo = specializationTwo;
     }
 
-    public int getHpPower() {
-        return hpPower;
+    public int getHealth() {
+        return health;
     }
 
-    public void setHpPower(int hpPower) {
-        this.hpPower = hpPower;
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public int getWeakness() {
@@ -132,5 +133,11 @@ public class Pokemon {
         this.retreat = retreat;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
