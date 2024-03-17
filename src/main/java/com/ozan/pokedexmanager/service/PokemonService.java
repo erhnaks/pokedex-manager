@@ -8,4 +8,6 @@ public interface PokemonService {
 
     List<Pokemon> getAllPokemon();
 
+    Pokemon savePokemon(Pokemon pokemon);
+
 }

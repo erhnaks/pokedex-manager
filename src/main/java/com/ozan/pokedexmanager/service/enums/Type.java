@@ -20,14 +20,14 @@ public enum Type {
     STEEL("Steel"),
     WATER("Water");
 
-    private final String displayName;
+    private final String TypeName;
 
-    Type(String displayName) {
-        this.displayName = displayName;
+    private Type(String displayName) {
+        this.TypeName = displayName;
     }
 
-    @Override
-    public String toString() {
-        return displayName;
-    }
+
+public String getTypeName() {
+        return TypeName;
+}
 }

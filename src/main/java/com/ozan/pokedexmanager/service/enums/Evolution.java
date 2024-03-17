@@ -10,14 +10,13 @@ public enum Evolution {
     STAGE_ONE("Stage One"),
     STAGE_TWO("Stage Two");
 
-    private final String displayName;
+    private final String displayEvoName;
 
-    Evolution(String displayName) {
-        this.displayName = displayName;
+    private Evolution(String displayName) {
+        this.displayEvoName = displayName;
     }
 
-    @Override
-    public String toString() {
-        return displayName;
+    public String getEvoName() {
+        return displayEvoName;
     }
 }

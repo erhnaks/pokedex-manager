@@ -20,4 +20,9 @@ public class PokemonServiceImpl  implements PokemonService {
     public List<Pokemon> getAllPokemon() {
         return repository.findAll();
     }
+
+    @Override
+    public Pokemon savePokemon(Pokemon pokemon) {
+        return repository.save(pokemon);
+    }
 }
