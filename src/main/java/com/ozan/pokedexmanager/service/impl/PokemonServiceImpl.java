@@ -3,6 +3,8 @@ package com.ozan.pokedexmanager.service.impl;
 import com.ozan.pokedexmanager.entity.Pokemon;
 import com.ozan.pokedexmanager.repository.PokemonRepository;
 import com.ozan.pokedexmanager.service.PokemonService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class PokemonServiceImpl  implements PokemonService {
     @Override
     public List<Pokemon> getAllPokemon() {
         return repository.findAll();
+    }
+
+    @Override
+    public Page<Pokemon> findPaginated(int page, int size) {
+        return repository.findAll(PageRequest.of(page, size));
     }
 
     @Override
