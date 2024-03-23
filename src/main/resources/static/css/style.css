@@ -1,7 +1,58 @@
-*{
-    /*width: 1
-   00%;*/ /*background-image: url('./static/image/Charizard-HD-Background-Wallpaper-37307.jpg');*/
-    /*background-image: url(../image/Charizard-HD-Background-Wallpaper-37307.jpg);*/
-
-    background: #1dc702;
+body {
+    background-image: url('c.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.8; /* Reduced opacity for better readability */
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for kids */
+    line-height: 1.5;
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
 }
+
+.table-primary {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.important {
+    background-color: #ff9900;
+    color: #FFFFFF; /* White text for better contrast */
+}
+
+.table {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table th {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table td {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table a,
+.table button {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.btn-pokemon {
+    color: #FFFFFF; /* White text for better contrast */
+    background-color: #ff9900; /* Orange for buttons */
+    border-color: #ff9900;
+}
+
+.btn-pokemon:hover {
+    background-color: #ffa500; /* Darker orange on hover */
+    border-color: #ffa500;
+}
+
+h3, h1 {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.btn-div {
+    margin-bottom: 10px;
+}
+

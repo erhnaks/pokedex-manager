@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-<head th:replace="~{fragments :: html_header}"/>
+<head th:replace="~{fragments :: html_header}">
+    <style>
+        body {
+            background-color: #98d4bb; /* Light green background */
+            color: #000000; /* Black text for contrast */
+        }
+        .btn-pokemon {
+            background-color: #ff9900; /* Orange for buttons */
+            border-color: #ff9900;
+        }
+        .btn-pokemon:hover {
+            background-color: #ffa500; /* Darker orange on hover */
+            border-color: #ffa500;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for cards */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
 <body>
 <div th:replace="~{fragments :: html_navbar}"/>
 <div class="container">

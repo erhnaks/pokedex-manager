@@ -2,66 +2,87 @@
 <html>
 
 <head th:replace="~{fragments :: html_header}">
+    <style>
+        body {
+            background-color: #222626; /* Light green background */
+            color: #000000; /* Black text for contrast */
+        }
 
+        .btn-pokemon {
+            background-color: #ff9900; /* Orange for buttons */
+            border-color: #ff9900;
+        }
+
+        .btn-pokemon:hover {
+            background-color: #ffa500; /* Darker orange on hover */
+            border-color: #ffa500;
+        }
+    </style>
 </head>
 
-<body >
+<body>
 
 <div th:replace="~{fragments :: html_navbar}"/>
 
-<div class="container">
-
-    <div class="row">
-        <h3>List of Pokemons </h3>
+<div class="container-fluid">
+    <div style="display: flex; justify-content: center; align-items: center; ">
+        <h3>POKEMON LIST</h3>
     </div>
+    <div class="row">
 
+    </div>
     <div class="row">
         <div class="col-lg-3">
-            <a th:href="@{/pokemons/new}" class="btn btn-primary btn-sm mb-3"> Add Pokemon </a>
+            <a th:href="@{/pokemons/new}" class="btn btn-primary btn-sm mb-3">Add Pokemon</a>
         </div>
     </div>
-    <table class="table table-striped table-bordered">
-        <thead class="table-primary">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Type</th>
-            <th>Evolution</th>
-            <th>Speciality</th>
-            <th>Speciality</th>
-            <th>Health</th>
-            <th>Weakness</th>
-            <th>Resistance</th>
-            <th>Retreat</th>
-            <th>Information</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="pokemon: ${pokemons}">
-            <td th:text="${pokemon.id}"></td>
-            <td th:text="${pokemon.name}"></td>
-            <td th:text="${pokemon.evolution}"></td>
-            <td th:text="${pokemon.type}"></td>
-            <td th:text="${pokemon.evolutionFrom}"></td>
-            <td th:text="${pokemon.specializationOne}"></td>
-            <td th:text="${pokemon.specializationTwo}"></td>
-            <td th:text="${pokemon.health}"></td>
-            <td th:text="${pokemon.weakness}"></td>
-            <td th:text="${pokemon.resistance}"></td>
-            <td th:text="${pokemon.retreat}"></td>
-            <td th:text="${pokemon.description}"></td>
-            <!-- Add actions here -->
-            <td>
-                <!-- Example action buttons -->
-                <a th:href="@{/pokemons/edit/{id} (id=${pokemon.id})}" class="btn btn-primary btn-sm">Edit</a>
-                <a th:href="@{/pokemons/delete/{id} (id=${pokemon.id})}" class="btn btn-danger btn-sm">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive"> <!-- Added for responsiveness -->
+        <table class="table table-striped table-bordered">
+            <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Evolution</th>
+                <th>Specialization One</th> <!-- Corrected header -->
+                <th>Specialization Two</th> <!-- Corrected header -->
+                <th>Health</th>
+                <th>Weakness</th>
+                <th>Resistance</th>
+                <th>Retreat</th>
+                <th>Information</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pokemon: ${pokemons}">
+                <td th:text="${pokemon.id}"></td>
+                <td th:text="${pokemon.name}"></td>
+                <td th:text="${pokemon.evolution}"></td>
+                <td th:text="${pokemon.type}"></td>
+                <td th:text="${pokemon.evolutionFrom}"></td>
+                <td th:text="${pokemon.specializationOne}"></td>
+                <td th:text="${pokemon.specializationTwo}"></td>
+                <td th:text="${pokemon.health}"></td>
+                <td th:text="${pokemon.weakness}"></td>
+                <td th:text="${pokemon.resistance}"></td>
+                <td th:text="${pokemon.retreat}"></td>
+                <td th:text="${pokemon.description}"></td>
+                <td>
+                    <div>
+                        <a th:href="@{/pokemons/edit/{id} (id=${pokemon.id})}" class="btn btn-primary btn-sm">Update</a>
+                    </div>
+                    <div>
+                        <a th:href="@{/pokemons/delete/{id} (id=${pokemon.id})}"
+                           class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 </body>
 </html>
