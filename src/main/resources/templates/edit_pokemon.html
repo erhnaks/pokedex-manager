@@ -7,10 +7,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center"> Create New Pokemon </h1>
+            <h1 class="text-center"> Edit Pokemon </h1>
 
             <div class="card-body">
-                <form th:action="@{/pokemons}" th:object="${pokemon}" method="POST">
+                <form th:action="@{/pokemons/{id} (id=${pokemon.id})}" th:object="${pokemon}" method="POST">
+
                     <div class="form-group">
                         <label>Pokemon Name</label>
                         <input type="text" name="name" th:field="*{name}" class="form-control"

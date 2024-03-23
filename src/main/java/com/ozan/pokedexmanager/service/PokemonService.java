@@ -8,9 +8,12 @@ import java.util.List;
 public interface PokemonService {
 
     List<Pokemon> getAllPokemon();
-    Page<Pokemon> findPaginated(int page, int size);
-
-
     Pokemon savePokemon(Pokemon pokemon);
+
+    Pokemon updatePokemon(Pokemon pokemon);
+
+    Pokemon getPokemonById(Long id);
+
+    void deletePokemonById(Long id);
 
 }
