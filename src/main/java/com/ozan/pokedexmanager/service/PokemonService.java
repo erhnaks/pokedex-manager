@@ -16,4 +16,5 @@ public interface PokemonService {
 
     void deletePokemonById(Long id);
 
+    List<Pokemon> searchPokemon(String search);
 }

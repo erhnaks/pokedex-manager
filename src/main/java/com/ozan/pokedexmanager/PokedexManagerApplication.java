@@ -23,7 +23,7 @@ public class PokedexManagerApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 //        Pokemon pokemon1 = new Pokemon("Pikachu", Evolution.VSTAR, Type.ELECTRIC, "Pika", "Super Pokemon", "Electrifying",
-//                400, 2, 4, 1, "Super Pokemon");
+//                12321321121231, 2, 4, 1, "Super Pokemon");
 //        repository.save(pokemon1);
 //
 //        Pokemon pokemon2 = new Pokemon("SnoorLax", Evolution.EX, Type.NORMAL, "Snoorer", "Super Loud", "Lazzyyyy",
