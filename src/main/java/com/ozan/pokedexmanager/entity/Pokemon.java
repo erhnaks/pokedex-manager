@@ -4,6 +4,8 @@ import com.ozan.pokedexmanager.service.enums.Evolution;
 import com.ozan.pokedexmanager.service.enums.Type;
 import jakarta.persistence.*;
 
+import java.math.BigInteger;
+
 @Entity
 @Table(name = "pokemons")
 public class Pokemon {
@@ -22,16 +24,16 @@ public class Pokemon {
     private String specializationOne;
     @Column(name = "specialization_two")
     private String specializationTwo;
-    private int health;
-    private int weakness;
-    private int resistance;
-    private int retreat;
+    private BigInteger health;
+    private BigInteger weakness;
+    private BigInteger resistance;
+    private BigInteger retreat;
 
     private String description;
 
-    public Pokemon() {};
+    public Pokemon() {}
 
-    public Pokemon(String name, Evolution evolution, Type type, String evolutionFrom, String specializationOne, String specializationTwo, int health, int weakness, int resistance, int retreat, String description) {
+    public Pokemon(String name, Evolution evolution, Type type, String evolutionFrom, String specializationOne, String specializationTwo, BigInteger health, BigInteger weakness, BigInteger resistance, BigInteger retreat, String description) {
         this.name = name;
         this.evolution = evolution;
         this.type = type;
@@ -101,35 +103,35 @@ public class Pokemon {
         this.specializationTwo = specializationTwo;
     }
 
-    public int getHealth() {
+    public BigInteger getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(BigInteger health) {
         this.health = health;
     }
 
-    public int getWeakness() {
+    public BigInteger getWeakness() {
         return weakness;
     }
 
-    public void setWeakness(int weakness) {
+    public void setWeakness(BigInteger weakness) {
         this.weakness = weakness;
     }
 
-    public int getResistance() {
+    public BigInteger getResistance() {
         return resistance;
     }
 
-    public void setResistance(int resistance) {
+    public void setResistance(BigInteger resistance) {
         this.resistance = resistance;
     }
 
-    public int getRetreat() {
+    public BigInteger getRetreat() {
         return retreat;
     }
 
-    public void setRetreat(int retreat) {
+    public void setRetreat(BigInteger retreat) {
         this.retreat = retreat;
     }
 
