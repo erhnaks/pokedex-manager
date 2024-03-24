@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class PokemonController {
 
@@ -19,9 +21,14 @@ public class PokemonController {
 
 
     @GetMapping("/pokemons")
-    public String listPokemons(Model model) {
-        service.getAllPokemon();
-        model.addAttribute("pokemons", service.getAllPokemon());
+    public String listPokemons(@RequestParam(required = false) String search, Model model) {
+        List<Pokemon> pokemons;
+        if (search != null && !search.isEmpty()) {
+            pokemons = service.searchPokemon(search);
+        } else {
+            pokemons = service.getAllPokemon();
+        }
+        model.addAttribute("pokemons", pokemons);
         return "pokemons";
     }
 

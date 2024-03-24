@@ -45,4 +45,10 @@ public class PokemonServiceImpl  implements PokemonService {
     public void deletePokemonById(Long id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<Pokemon> searchPokemon(String search) {
+        return repository.findByNameContainingIgnoreCase(search);
+    }
+
 }
