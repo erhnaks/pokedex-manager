@@ -1,0 +1,78 @@
+body {
+    background-image: url('char.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.8; /* Reduced opacity for better readability */
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for kids */
+    line-height: 1.5;
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table-primary {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.important {
+    background-color: #ff9900;
+    color: #FFFFFF; /* White text for better contrast */
+}
+
+.table {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table th {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table td {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.table a,
+.table button {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.btn-pokemon {
+    color: #FFFFFF; /* White text for better contrast */
+    background-color: #ff9900; /* Orange for buttons */
+    border-color: #ff9900;
+}
+
+.btn-pokemon:hover {
+    background-color: #ffa500; /* Darker orange on hover */
+    border-color: #ffa500;
+}
+
+h3, h1 {
+    color: #FFFFFF; /* White text for better contrast with #947B42 background */
+}
+
+.btn-div {
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Ensure the search bar is above other content */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for better readability */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-bar .form-control {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white input field */
+    color: #000000; /* Black text for contrast */
+    border-color: #FFFFFF; /* White border for contrast */
+}
+
+.search-bar .btn-outline-secondary {
+    color: #FFFFFF; /* White text for better contrast */
+    border-color: #FFFFFF; /* White border for contrast */
+}

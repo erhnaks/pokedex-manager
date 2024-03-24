@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="~{fragments :: html_header}">
+    <style>
+        body {
+            background-color: #98d4bb; /* Light green background */
+            color: #000000; /* Black text for contrast */
+        }
+        .btn-pokemon {
+            background-color: #ff9900; /* Orange for buttons */
+            border-color: #ff9900;
+        }
+        .btn-pokemon:hover {
+            background-color: #ffa500; /* Darker orange on hover */
+            border-color: #ffa500;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for cards */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{fragments :: html_navbar}"/>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center"> Create New Pokemon </h1>
+
+            <div class="card-body">
+                <form th:action="@{/pokemons}" th:object="${pokemon}" method="POST">
+                    <div class="form-group">
+                        <label>Pokemon Name</label>
+                        <input type="text" name="name" th:field="*{name}" class="form-control"
+                               placeholder="Enter Pokemon Name"/>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="evolution">
+
+                            <option th:each="evoOpt : ${T(com.ozan.pokedexmanager.service.enums.Evolution).values()}"
+                                    th:value="${evoOpt}" th:text="${evoOpt.evoName}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="type">
+
+                            <option th:each="typeOpt : ${T(com.ozan.pokedexmanager.service.enums.Type).values()}"
+                                    th:value="${typeOpt}" th:text="${typeOpt.typeName}"></option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Evolution From</label>
+                        <input type="text" name="evolutionFrom" th:field="*{evolutionFrom}" class="form-control"
+                               placeholder="Enter Evolution From"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Specialization One</label>
+                        <input type="text" name="specializationOne" th:field="*{specializationOne}" class="form-control"
+                               placeholder="Enter Specialization One"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Specialization Two</label>
+                        <input type="text" name="specializationTwo" th:field="*{specializationTwo}" class="form-control"
+                               placeholder="Enter Specialization Two"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Health</label>
+                        <input type="number" name="health" th:field="*{health}" class="form-control"
+                               placeholder="Enter Health"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Weakness</label>
+                        <input type="number" name="weakness" th:field="*{weakness}" class="form-control"
+                               placeholder="Enter Weakness"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Resistance</label>
+                        <input type="number" name="resistance" th:field="*{resistance}" class="form-control"
+                               placeholder="Enter Resistance"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Retreat</label>
+                        <input type="number" name="retreat" th:field="*{retreat}" class="form-control"
+                               placeholder="Enter Retreat"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" th:field="*{description}" class="form-control"
+                                  placeholder="Enter Description"></textarea>
+                    </div>
+
+                    <div class="footer-body">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
