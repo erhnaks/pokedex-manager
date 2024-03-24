@@ -2,13 +2,9 @@ package com.ozan.pokedexmanager.controller;
 
 import com.ozan.pokedexmanager.entity.Pokemon;
 import com.ozan.pokedexmanager.service.PokemonService;
-import com.ozan.pokedexmanager.service.enums.Evolution;
-import com.ozan.pokedexmanager.service.enums.Type;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PokemonController {
@@ -29,6 +25,8 @@ public class PokemonController {
         return "pokemons";
     }
 
+
+
     @GetMapping("/pokemons/new")
     public String createPokemonForm(Model model) {
         Pokemon pokemon = new Pokemon();
@@ -37,8 +35,44 @@ public class PokemonController {
     }
     @PostMapping("/pokemons")
     public String savePokemon(@ModelAttribute("pokemon") Pokemon pokemon) {
-        System.out.println(pokemon);
         service.savePokemon(pokemon);
+        return "redirect:/pokemons";
+    }
+    @GetMapping("/pokemons/edit/{id}")
+    public String editPokemon(@PathVariable Long id, Model model) {
+        model.addAttribute("pokemon", service.getPokemonById(id));
+        return "edit_pokemon";
+    }
+
+    @PostMapping("/pokemons/{id}")
+    public String updatePokemon(@PathVariable Long id, @ModelAttribute("pokemon") Pokemon pokemon, Model model) {
+
+        // Get pokemon from database
+        Pokemon existingPokemon = service.getPokemonById(id);
+
+        existingPokemon.setId(id);
+        existingPokemon.setName(pokemon.getName());
+        existingPokemon.setEvolution(pokemon.getEvolution());
+        existingPokemon.setType(pokemon.getType());
+        existingPokemon.setEvolutionFrom(pokemon.getEvolutionFrom());
+        existingPokemon.setSpecializationOne(pokemon.getSpecializationOne());
+        existingPokemon.setSpecializationTwo(pokemon.getSpecializationTwo());
+        existingPokemon.setHealth(pokemon.getHealth());
+        existingPokemon.setWeakness(pokemon.getWeakness());
+        existingPokemon.setResistance(pokemon.getResistance());
+        existingPokemon.setRetreat(pokemon.getRetreat());
+        existingPokemon.setDescription(pokemon.getDescription());
+
+        // save edited pokemon
+
+        service.updatePokemon(existingPokemon);
+        return "redirect:/pokemons";
+    }
+
+
+    @GetMapping("/pokemons/delete/{id}")
+    public String deletePokemon(@PathVariable Long id) {
+        service.deletePokemonById(id);
         return "redirect:/pokemons";
     }
 
